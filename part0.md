@@ -5,7 +5,7 @@
 
     Note right of browser: The user writes the note and clicks "Save"
 
-   browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
     activate server
     Note right of browser: The server inserts the new note into the notes array and sends a redirect response
     server-->>browser: HTTP status code 302 (Redirect to /notes)
