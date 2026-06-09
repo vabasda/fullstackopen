@@ -7,7 +7,7 @@ app.use(express.static('dist'))
 const Phonebook = require('./models/phonebook')
 
 
-morgan.token('body', function (request, response) {
+morgan.token('body', function (request) {
   return request.method === 'POST' ? JSON.stringify(request.body) : ''
 })
 
@@ -45,7 +45,7 @@ app.get('/api/persons/:id', (request, response, next) => {
 
 app.delete('/api/persons/:id', (request, response, next) => {
   Phonebook.findByIdAndDelete(request.params.id)
-    .then(result => {
+    .then(() => {
       response.status(204).end()
     })
     .catch(error => next(error))
