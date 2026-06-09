@@ -7,7 +7,7 @@ if (process.argv.length < 3) {
 
 const password = process.argv[2]
 
-                                                                                                       
+
 const url = `mongodb://fullstack:${password}@ac-qs5sftb-shard-00-00.yhyqgh3.mongodb.net:27017,ac-qs5sftb-shard-00-01.yhyqgh3.mongodb.net:27017,ac-qs5sftb-shard-00-02.yhyqgh3.mongodb.net:27017/phonebookApp?ssl=true&replicaSet=atlas-lkgr90-shard-0&authSource=admin&appName=Cluster0`
 mongoose.set('strictQuery',false)
 
@@ -35,10 +35,10 @@ if (process.argv.length === 5) {
   })
 }else if (process.argv.length === 3) {
   console.log('phonebook:')
-    Phonebook.find({}).then(result => {
+  Phonebook.find({}).then(result => {
     result.forEach(entry => {
-        console.log(`${entry.name} ${entry.number}`)
+      console.log(`${entry.name} ${entry.number}`)
     })
     mongoose.connection.close()
-    })
+  })
 }
